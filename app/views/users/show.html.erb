@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-3">
+      <h2>User info</h2>
+      <%= attachment_image_tag @user, :profile_image, class: "mt-1 rounded-circle", size: "100x100", fallback: "no_image.jpg" %>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>name</td>
+            <td><%= @user.name %></td>
+          </tr>
+          <tr>
+            <td>intro</td>
+            <td><%= @user.intro %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-grid gap-1">
+        <% if user_signed_in? && @user.id == current_user.id %>
+          <%= link_to edit_user_path(@user) do %>
+           <button type="button" class="btn btn-outline-success">Edit</button>
+          <% end %>
+          <%= link_to "退会", users_hide_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
+        <% end %>
+      </div>
+
+    </div>
+
+    <div class="col-md-6">
+      <% @posts.each do |post| %>
+       <div class="card w-80 mx-auto mt-1 shadow-lg">
+         <%= link_to post_path(post.id) do %>
+           <%= attachment_image_tag post, :picture, class:"card-img-top" %>
+         <% end %>
+         <div class="card-body">
+           <div class="row">
+             <div class="col-10">
+               <h3 class="card-title">
+                 <%= post.title %>
+               </h3>
+             </div>
+           </div>
+         </div>
+       </div>
+      <% end %>
+    </div>
+
+    <div class="col-md-3">
+      ランキング
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,24 @@
+ <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+      <div class="container">
+        <a class="navbar-brand p-3" href="/">Recette</a>
+          <ul class="navbar-nav mi-auto">
+            <% if user_signed_in? %>
+             <li class="nav-item">
+               <%= link_to "Mypage", user_path(current_user.id), class: 'nav-link text-light' %>
+             </li>
+             <li class="nav-item">
+               <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
+             </li>
+            <% else %>
+             <li class="nav-item">
+               <%= link_to "Signup", new_user_registration_path, class: 'nav-link text-light' %>
+             </li>
+             <li class="nav-item">
+               <%= link_to "Login", new_user_session_path, class: 'nav-link text-light' %>
+             </li>
+            <% end %>
+          </ul>
+      </div>
+    </nav>
+  </header>

@@ -1,0 +1,14 @@
+<div class="container">
+   <%= render 'layouts/error', obj: @post %>
+   <h3>New recipe</h3>
+
+   <%= form_with model: @post, local:true do |f| %>
+      <div>Title</div>
+      <%= f.text_field :title %>
+      <div>Image</div>
+      <%= f.attachment_field :picture %>
+      <div>Recipe</div>
+      <%= f.text_area :cook %>
+      <%= f.submit '投稿' %>
+   <% end %>
+</div>

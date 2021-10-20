@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+  <div class="w-100 mx-auto mt-1">
+    <div>
+      <%= attachment_image_tag @post, :picture, size: "800x500" %>
+      <p><%= @post.title %></p>
+      <p><%= safe_join(@post.cook.split("\n"),tag(:br)) %></p>
+      <p><%= @post.user.name %></p>
+      <% if @post.user == current_user %>
+       <%= link_to 'delete', post_path(@post), method: :delete %>
+      <% end %>
+    </div>
+    <%= link_to 'back', posts_path %>
+    <%= link_to 'edit', edit_post_path(@post) %>
+  </div>
+  </div>
+</div>
