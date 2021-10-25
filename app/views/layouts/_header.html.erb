@@ -1,7 +1,7 @@
  <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
       <div class="container">
-        <a class="navbar-brand p-3" href="/">Recette</a>
+        <a class="fas fa-birthday-cake navbar-brand p-3" href="/"><span>Recette</span></a>
           <ul class="navbar-nav mi-auto">
             <% if user_signed_in? %>
              <li class="nav-item">
@@ -9,6 +9,9 @@
              </li>
              <li class="nav-item">
                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
+             </li>
+             <li class="nav-item">
+               <%= render 'posts/window' %>
              </li>
             <% else %>
              <li class="nav-item">

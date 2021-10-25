@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).reverse_order
     @all_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
   end
 
@@ -45,12 +45,12 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
-  def search
+  def search #検索機能
     if params[:keyword].present?
-      @posts = Post.where('title LIKE ?', "%#{params[:keyword]}%")
+      @posts = Post.where('title LIKE ?', "%#{params[:keyword]}%") #:keywordが:titleに含まれているものを表示
       @keyword = params[:keyword]
     else
-      @posts = Post.all
+      @posts = Post.all #空白で検索した場合
     end
   end
 
