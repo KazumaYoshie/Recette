@@ -17,12 +17,43 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
+ body {
+  margin: -25px 0px;
+  color: #555555;
+  background-color: #FFFFEE;
+ }
+
  .pagination {
   justify-content: center;
  }
 
  .pagination>li>a {
   border: none;
+  color: #111;
+  background-color: #FFFFEE;
  }
- 
- 
+
+ .page-item.active .page-link {
+  background: #666633;
+ }
+
+ header {
+  background-color: #999966;
+ }
+
+ footer {
+  background-color: #999966;
+ }
+
+ .btn {
+  color: #ffffff;
+  background-color: #666633;
+ }
+
+ .like-btn {
+  color: #e54747;
+ }
+
+ .unlike-btn {
+  color: #808080;
+ }

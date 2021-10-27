@@ -1,9 +1,15 @@
  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
         <a class="fas fa-birthday-cake navbar-brand p-3" href="/"><span>Recette</span></a>
           <ul class="navbar-nav mi-auto">
             <% if user_signed_in? %>
+             <li class="nav-item">
+               <%= link_to "NewRecipe", new_post_path, class: 'nav-link text-light' %>
+             </li>
+             <li class="nav-item">
+               <%= link_to "Posts", posts_path, class: 'nav-link text-light' %>
+             </li>
              <li class="nav-item">
                <%= link_to "Mypage", user_path(current_user.id), class: 'nav-link text-light' %>
              </li>

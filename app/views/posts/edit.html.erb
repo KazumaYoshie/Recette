@@ -1,7 +1,6 @@
 <div class="container">
-
   <div class="row">
-     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+     <div class="col-md-8 px-5 px-sm-0 mx-auto">
        <h2>edit</h2>
        <div class="form-group">
          <%= form_with model: @post, local: true do |f| %>
@@ -10,8 +9,8 @@
          <label>Image</label>
          <%= f.attachment_field :picture, class: "form-control-file" %>
          <label>Recipe</label>
-         <%= f.text_area :cook, class: "form-control" %>
-         <%= f.submit 'Save', class: "btn btn-success" %>
+         <%= f.text_area :cook, size: "80x20", class: "form-control" %>
+         <%= f.submit 'Save', class: "btn" %>
        </div>
        <% end %>
      </div>
