@@ -1,3 +1,38 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+  .input {
+    display: inline-block;
+    width: 140px;
+    border: 1px solid #ccc;
+    background: #f0f21f1;
+    margin: 0 4px 0 0;
+    height: 24px;
+  }
+
+
+
+  .fa-search {
+    display       : inline-block;
+    border-radius : 5%;
+    text-align    : center;
+    padding       : 5px 5px;
+    background    : #666633;
+    color         : #ffffff;
+    line-height   : 1em;
+    transition    : .3s;
+    border        : 2px solid #666633;
+  }
+
+  .fas {
+    text-decoration: none;
+  }
+
+  .fas:hover {
+    text-decoration: none;
+  }
+
+  .select {
+    display: flex;
+  }
