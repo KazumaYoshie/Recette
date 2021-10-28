@@ -1,9 +1,11 @@
 <div class="container">
   <div class="row">
      <div class="col-md-8 px-5 px-sm-0 mx-auto">
+       <%= render 'layouts/error', obj: @post %>
        <h2>edit</h2>
        <div class="form-group">
          <%= form_with model: @post, local: true do |f| %>
+
          <label>Title</label>
           <%= f.text_field :title, class: "form-control" %>
          <label>Image</label>

@@ -1,0 +1,22 @@
+<table class="table">
+   <% post.post_comments.each do |post_comment| %>
+     <tr>
+       <td>
+         <%= attachment_image_tag post_comment.user, :profile_image, class: "mt-1 rounded-circle", size: "30x30", fallback: "no_image.jpg" %>
+         <%= post_comment.user.name %>
+         <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+       </td>
+       <td class= "text-center"><%= post_comment.comment %></td>
+       <td>
+         <% if current_user == post_comment.user %>
+           <%= link_to "delete", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
+         <% end %>
+        </td>
+     </tr>
+   <% end %>
+</table>
+
+  <%= form_with(model:[post, @post_comment], local: true) do |f| %>
+   <%= f.text_area :comment, class: "form-control",placeholder: "コメントをここに" %>
+   <%= f.submit "送信", class: "btn m-1" %>
+  <% end %>

@@ -1,38 +1,28 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 px-5 px-sm-0 mx-auto">
-      <h2>
-        <strong><%= @post.title %></strong>
-        <% if @post.liked_by?(current_user) %>
-          <%= link_to @post.likes.count, post_likes_path(@post), method: :delete, class: "fas fa-heart like-btn" %>
-        <% else %>
-          <%= link_to @post.likes.count, post_likes_path(@post), method: :post, class: "far fa-heart unlike-btn" %>
-        <% end %>
-      </h2>
-      <%= attachment_image_tag @post, :picture, class: "text-center", height: "50%", width: "100%" %>
-      <p class="select">
-       <%= link_to 'back', posts_path, class: "btn m-1" %>
-        <% if @post.user == current_user %>
-         <%= link_to 'edit', edit_post_path(@post), class: "btn m-1" %>
-         <%= link_to 'delete', post_path(@post), method: :delete, class: "btn m-1" %>
-        <% end %>
-      </p>
-      <p><%= safe_join(@post.cook.split("\n"),tag(:br)) %></p>
-      <p><%= @post.user.name %></p>
-      <p>コメント件数：<%= @post.post_comments.count %></p>
-
-      <% @post.post_comments.each do |post_comment| %>
-       <div>
-         <%= attachment_image_tag post_comment.user, :profile_image, class: "mt-1 rounded-circle", size: "30x30", fallback: "no_image.jpg" %>
-         <%= post_comment.user.name %>
-         <%= post_comment.created_at.strftime('%Y/%m/%d') %>
-         <%= post_comment.comment %><%= link_to "delete", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
-       </div>
-      <% end %>
-      <%= form_with(model:[@post, @post_comment], local: true) do |f| %>
-       <%= f.text_area :comment, class: "form-control",placeholder: "コメントをここに" %>
-       <%= f.submit "送信", class: "btn m-1" %>
-      <% end %>
+      <div class="mx-auto mt-1">
+        <h2>
+          <strong><%= @post.title %></strong>
+          <% if @post.liked_by?(current_user) %>
+            <%= link_to @post.likes.count, post_likes_path(@post), method: :delete, class: "fas fa-heart like-btn" %>
+          <% else %>
+            <%= link_to @post.likes.count, post_likes_path(@post), method: :post, class: "far fa-heart unlike-btn" %>
+          <% end %>
+        </h2>
+        <%= attachment_image_tag @post, :picture, class: "text-center", height: "50%", width: "100%" %>
+        <p class="select">
+         <%= link_to 'back', posts_path, class: "btn m-1" %>
+          <% if @post.user == current_user %>
+           <%= link_to 'edit', edit_post_path(@post), class: "btn m-1" %>
+           <%= link_to 'delete', post_path(@post), method: :delete, class: "btn m-1" %>
+          <% end %>
+        </p>
+        <p><%= safe_join(@post.cook.split("\n"),tag(:br)) %></p>
+        <p><%= @post.user.name %></p>
+        <p>コメント件数：<%= @post.post_comments.count %></p>
+        <%= render 'post_comments', post: @post %>
+      </div>
     </div>
   </div>
 </div>
