@@ -25,14 +25,12 @@
 
  .pagination {
   justify-content: center;
- }
-
- .pagination>li>a {
-  border: none;
-  color: #111;
-  background-color: #FFFFEE;
- }
-
+  li>a {
+   border: none;
+   color: #111;
+   background-color: #FFFFEE;
+  }
+}
  .page-item.active .page-link {
   background: #666633;
  }
