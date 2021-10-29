@@ -18,7 +18,7 @@
     <div class="text-center">
       <% @posts.each do |post| %>
        <%= link_to post_path(post.id) do %>
-         <%= attachment_image_tag post, :picture, width: '30%', height: '90%' %>
+         <%= attachment_image_tag post, :picture, width: '32%', class: "p-3" %>
        <% end %>
       <% end %>
     </div>
