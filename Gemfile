@@ -71,6 +71,13 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'kaminari', '~> 1.2.1'
 gem 'rails-i18n'
 
+group :development do
+  gem 'rubocop', require: false
+  gem "rubocop-performance", require: false
+  gem "rubocop-rails", require: false
+  gem "rubocop-rspec", require: false
+end
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
