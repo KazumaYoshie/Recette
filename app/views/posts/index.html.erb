@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-7 col-md-8 mx-auto">
+    <div class="col-lg-7 col-md-7 mx-auto">
       <div class="mx-auto mt-1">
         <h2>投稿一覧</h2>
         <% @posts.each do |post| %>
@@ -15,7 +15,7 @@
                    <%= attachment_image_tag post.user, :profile_image, class: "mt-1 rounded-circle", size: "50x50", fallback: "no_image.jpg" %>
                   <% end %>
                 </div>
-                <div class="col-8">
+                <div class="col-7">
                   <h4 class="card-title">
                     <strong><%= post.title %></strong>
                   </h4>
@@ -23,7 +23,7 @@
                 <div class="col-1">
                   <i class="far fa-comment-dots"><%= post.post_comments.count %></i>
                 </div>
-                <div class="col-1">
+                <div class="col-1 mx-1">
                   <i class="far fa-heart"><%= post.likes.count %></i>
                 </div>
               </div>
