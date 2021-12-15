@@ -1,6 +1,5 @@
 <div class="container">
   <div class="row">
-
     <div class="col-md-3">
       <h2>User info</h2>
       <%= attachment_image_tag @user, :profile_image, class: "mt-1 rounded-circle", size: "100x100", fallback: "no_image.jpg" %>
@@ -46,10 +45,8 @@
           <% end %>
         <% end %>
       </div>
-
     </div>
-
-    <div class="col-md-6">
+    <div class="col-md-7 mt-auto">
       <% @posts.each do |post| %>
        <div class="card w-80 mx-auto mt-1">
          <%= link_to post_path(post.id) do %>
@@ -68,8 +65,5 @@
       <% end %>
       <%= paginate @posts %>
     </div>
-
-
-
   </div>
 </div>
