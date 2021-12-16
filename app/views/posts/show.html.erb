@@ -4,11 +4,7 @@
       <div class="mx-auto mt-1">
         <h2>
           <strong><%= @post.title %></strong>
-          <% if @post.liked_by?(current_user) %>
-            <%= link_to @post.likes.count, post_likes_path(@post), method: :delete, class: "fas fa-heart like-btn" %>
-          <% else %>
-            <%= link_to @post.likes.count, post_likes_path(@post), method: :post, class: "far fa-heart unlike-btn" %>
-          <% end %>
+          <strong  id="like_buttons_<%= @post.id %>"><%= render "likes/like", post: @post %></strong>
         </h2>
         <%= attachment_image_tag @post, :picture, class: "text-center", height: "50%", width: "100%" %>
         <p class="select">
